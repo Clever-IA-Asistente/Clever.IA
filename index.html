@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever.IA - Asistente para la Escuela Santa Rita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen p-4 flex flex-col items-center">
+    <!-- Contenedor Principal -->
+    <div id="chat-container" class="w-full max-w-4xl h-[90vh] sm:h-[85vh] md:h-[85vh] lg:h-[85vh] rounded-2xl flex flex-col p-4 sm:p-6">
+       
+        <!-- ENCABEZADO -->
+        <header class="text-center pb-4 border-b border-gray-700/50 mb-4">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-wider flex items-center justify-center">
+                <!-- Imagen del Asistente en Encabezado -->
+                <div class="header-profile-container flex items-center justify-center p-1 rounded-full">
+                    <img
+                        id="assistant-header-img"
+                        class="header-profile-pic"
+                        src="IMG_20251031_170524.png"
+                        onerror="this.onerror=null; this.src='https://placehold.co/40x40/334155/ffffff?text=AI'"
+                        alt="Asistente IA"
+                    >
+                </div>
+                Clever.IA
+            </h1>
+            <p class="text-gray-400/80 text-sm mt-1">Tu asistente virtual: Escuela Santa Rita</p>
+        </header>
+        <!-- ZONA DE CHAT -->
+        <div id="chat-log" class="flex-grow space-y-4 pr-2">
+            <!-- Mensaje de bienvenida inicial -->
+            <div class="assistant-bubble-container">
+                <!-- Perfil del Asistente -->
+                <img
+                    class="profile-pic"
+                    src="IMG_20251031_170524.png"
+                    onerror="this.onerror=null; this.src='https://placehold.co/40x40/334155/ffffff?text=AI'"
+                    alt="Asistente IA"
+                >
+                <div class="assistant-bubble max-w-[80%] md:max-w-[70%] p-3 rounded-xl text-gray-100 shadow-md">
+                    <p class="text-sm font-semibold text-sky-300 mb-1">Clever.IA</p>
+                    <!-- Mensaje de presentación -->
+                    <p class="text-base">¡Hola! Soy Clever.IA, tu asistente en línea de la Escuela Santa Rita. Estoy programado para ayudarte con todas tus dudas sobre horarios, inscripciones, cupos y más. ¿En qué puedo asistirte?</p>
+                </div>
+            </div>
+            <!-- Los mensajes generados dinámicamente se insertarán aquí por JavaScript -->
+        </div>
+        <!-- BARRA DE ENTRADA -->
+        <form id="chat-form" class="mt-4 pt-4 border-t border-gray-700/50 flex space-x-3 items-center">
+            <input
+                type="text"
+                id="message-input"
+                placeholder="Escribe tu consulta sobre la escuela aquí..."
+                class="flex-grow p-3 rounded-full bg-slate-700 text-white border border-transparent focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-200 placeholder-gray-400 text-sm"
+                autocomplete="off"
+            >
+            <button
+                type="submit"
+                id="send-button"
+                class="bg-sky-600 hover:bg-sky-700 text-white p-3 rounded-full flex items-center justify-center transition duration-200 disabled:opacity-50"
+                aria-label="Enviar mensaje"
+            >
+                <i data-lucide="send" class="w-5 h-5"></i>
+            </button>
+        </form>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
