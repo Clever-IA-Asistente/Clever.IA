@@ -1,0 +1,113 @@
+/* ==========================================================
+ * 1. Variables y Tema
+ * ========================================================== */
+:root {
+    --primary-color: 79, 70, 229; /* Indigo-600 */
+    --accent-color-1: 14, 165, 233; /* Sky-500 */
+    --accent-color-2: 34, 211, 238; /* Cyan-400 */
+}
+   
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom right, #0F172A, #18253a);
+}
+/* Contenedor principal del chat */
+#chat-container {
+    /* Nuevo estilo: Borde de luz sutil y definido */
+    border: 1px solid rgb(var(--accent-color-1), 0.7); /* Línea más fina y definida */
+    box-shadow:
+        0 0 10px rgba(var(--accent-color-2), 0.6), /* Brillo interno más fuerte */
+        0 0 20px rgba(var(--accent-color-1), 0.2); /* Sombra exterior sutil */
+    background: #000000;
+}
+/* ==========================================================
+ * 2. Estilos de Burbujas y Perfiles
+ * ========================================================== */
+/* Asistente */
+.assistant-bubble-container { display: flex; align-items: flex-start; }
+.assistant-bubble {
+    background-color: #334155;
+    border-bottom-left-radius: 0;
+    animation: fadeIn 0.3s ease-out;
+    border-left: 3px solid rgb(var(--accent-color-1));
+}
+.assistant-bubble ul { list-style-type: disc; margin-left: 20px; padding-left: 5px; margin-top: 5px; }
+.assistant-bubble li { margin-bottom: 5px; }
+/* Usuario */
+.user-bubble-container { display: flex; justify-content: flex-end; align-items: flex-start; }
+.user-bubble {
+    background-color: #4f46e5;
+    border-bottom-right-radius: 0;
+    animation: fadeIn 0.3s ease-out;
+    border-right: 3px solid rgb(var(--primary-color));
+}
+/* Foto de perfil del asistente */
+.profile-pic {
+    width: 40px; height: 40px; min-width: 40px; border-radius: 50%;
+    background-color: #1f2937;
+    border: 2px solid rgb(var(--accent-color-1));
+    padding: 2px;
+    margin-right: 10px;
+    box-shadow: 0 0 8px rgba(var(--accent-color-1), 0.5);
+    object-fit: cover;
+}
+/* Foto de perfil del usuario */
+.user-profile-pic {
+    width: 40px; height: 40px; min-width: 40px; border-radius: 50%;
+    background: #4f46e5;
+    border: 2px solid rgb(var(--primary-color));
+    padding: 4px; margin-left: 10px;
+    box-shadow: 0 0 8px rgba(var(--primary-color), 0.5);
+}
+   
+/* Ícono del encabezado */
+.header-profile-pic { width: 36px; height: 36px; min-width: 36px; padding: 0; border-radius: 50%; object-fit: cover; }
+.header-profile-container {
+     width: 44px; height: 44px; min-width: 44px; border-radius: 50%; margin-right: 10px;
+     border: 2px solid rgb(var(--accent-color-1));
+     box-shadow: 0 0 8px rgba(var(--accent-color-1), 0.5);
+     background-color: #1f2937;
+}
+/* ==========================================================
+ * 3. Animaciones y Usabilidad
+ * ========================================================== */
+/* Indicador de "Escribiendo" */
+.typing-indicator span {
+    display: inline-block; width: 8px; height: 8px;
+    background-color: rgb(var(--accent-color-1));
+    border-radius: 50%; margin: 0 2px;
+    animation: bounce 0.6s infinite alternate;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+   
+/* Log de chat y scroll */
+#chat-log {
+    overflow-y: auto;
+    max-height: calc(100vh - 16rem);
+}
+/* Ajuste de altura para móviles */
+@media (min-width: 640px) {
+    #chat-log {
+        max-height: calc(100vh - 12rem);
+    }
+}
+/* Botón de enviar */
+#send-button {
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 10px rgba(var(--primary-color), 0.5);
+}
+#send-button:hover {
+    box-shadow:
+        0 0 15px rgba(var(--primary-color), 0.8),
+        0 0 20px rgba(var(--accent-color-1), 0.4);
+    transform: scale(1.05);
+}
